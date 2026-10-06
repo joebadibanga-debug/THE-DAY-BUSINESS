@@ -1,15 +1,15 @@
 workflows:
-  android-release:
-    name: THE DAY BUSINESS RDC - APK Android
+  mobile-release:
+    name: THE DAY BUSINESS RDC - APK & iOS
     max_build_duration: 30
     environment:
       flutter: stable
     scripts:
       - name: Generer les dossiers de plateforme manquants
-        script: flutter create . --platforms=android
+        script: flutter create . --platforms=android,ios
       - name: Flutter Pub Get
         script: flutter pub get
-      - name: Build APK
+      - name: Build APK Android
         script: flutter build apk --release
     artifacts:
       - build/app/outputs/flutter-apk/*.apk
